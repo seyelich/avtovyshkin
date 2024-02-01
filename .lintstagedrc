@@ -1,0 +1,8 @@
+{
+  "src/**/*.{js,ts,tsx,json}": [
+    "eslint --cache --max-warnings 100"
+  ],
+  "src/**/*.{js,ts,tsx,css,scss,json,md}": [
+    "prettier --write"
+  ]
+}
