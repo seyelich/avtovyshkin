@@ -1,18 +1,19 @@
 import { ClockCircleTwoTone, MailTwoTone, PhoneTwoTone } from '@ant-design/icons'
 import { Card, Flex } from 'antd'
 import Meta from 'antd/es/card/Meta'
-import Title from 'antd/es/typography/Title'
 import Link from 'antd/es/typography/Link'
 import { OrderForm } from 'components/Forms/OrderForm'
+import { PageTemplate } from 'pages'
+import styles from './index.module.css'
 
 export const ContactsPage = () => (
-  <div style={{ margin: '0 50px' }}>
-    <Title>Контакты</Title>
-    <Flex justify="center" gap={50} align="center">
-      <div style={{ width: '40%' }}>
+  <PageTemplate title="Контакты">
+    <Flex justify="center" gap={50} align="center" className={styles.container}>
+      <Flex gap={10} vertical className={styles.contacts}>
         <Card>
           <Meta
-            avatar={<ClockCircleTwoTone style={{ fontSize: 50 }} />}
+            avatar={<ClockCircleTwoTone className={styles.icon} />}
+            //@TODO: fix big chars
             title="Мы рады вашим звонкам!"
             description={
               <>
@@ -25,7 +26,7 @@ export const ContactsPage = () => (
         </Card>
         <Card>
           <Meta
-            avatar={<PhoneTwoTone style={{ fontSize: 50 }} />}
+            avatar={<PhoneTwoTone className={styles.icon} />}
             title="Звоните нам по телефону:"
             description={
               <Flex vertical>
@@ -37,13 +38,13 @@ export const ContactsPage = () => (
         </Card>
         <Card>
           <Meta
-            avatar={<MailTwoTone style={{ fontSize: 50 }} />}
+            avatar={<MailTwoTone className={styles.icon} />}
             title="Пишите на почту:"
             description={<Link href="mailto:334462@mail.ru">334462@mail.ru</Link>}
           />
         </Card>
-      </div>
+      </Flex>
       <OrderForm />
     </Flex>
-  </div>
+  </PageTemplate>
 )

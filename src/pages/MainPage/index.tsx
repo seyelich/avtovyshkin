@@ -1,11 +1,11 @@
 import { Tabs } from 'antd'
-import Title from 'antd/es/typography/Title'
 import { AutoCard } from 'components/Cards/AutoCard'
+import { PageTemplate } from 'pages'
 import { cars } from 'utils/constants'
 
 export const MainPage = () => (
-  <div style={{ margin: '0 50px' }}>
-    <Title>Выберите высоту автовышки</Title>
+  //@TODO: fix mobile cards
+  <PageTemplate title="Выберите высоту автовышки">
     <Tabs
       items={cars.map((el) => ({
         key: el.height.toString(),
@@ -13,5 +13,5 @@ export const MainPage = () => (
         label: el.height,
       }))}
     />
-  </div>
+  </PageTemplate>
 )

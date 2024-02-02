@@ -1,0 +1,17 @@
+.btnContainer {
+  display: flex;
+  gap: 10px;
+}
+
+.btn {
+  width: 50%;
+}
+
+@media screen and (max-width: 600px) {
+  .btnContainer {
+    flex-direction: column;
+  }
+  .btn {
+    width: 100%;
+  }
+}

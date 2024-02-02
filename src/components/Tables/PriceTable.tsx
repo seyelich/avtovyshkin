@@ -1,8 +1,9 @@
 import type { TableProps } from 'antd'
 import { Table } from 'antd'
-import type { TCar } from 'utils/constants'
-import { cars, taxCoef } from 'utils/constants'
+import Text from 'antd/es/typography/Text'
 import { PriceTableFooter } from './TableFooter'
+import { cars, taxCoef } from 'utils/constants'
+import type { TCar } from 'utils/constants'
 
 export const PriceTable = ({ tax }: { tax?: boolean }) => {
   const columns: TableProps<TCar>['columns'] = [
@@ -34,10 +35,12 @@ export const PriceTable = ({ tax }: { tax?: boolean }) => {
       dataSource={cars}
       columns={columns}
       pagination={false}
+      rowKey={'height'}
+      scroll={{ x: true }}
       footer={() => (
         <PriceTableFooter
-          priceShort={`${tax ? '72 (Семьдесят два)' : '60 (Шестьдесят)'} рублей 00`}
-          priceLong={`${tax ? '96 (Девяносто шесть)' : '80 (Восемьдесят)'} рублей 00`}
+          priceShort={<Text strong>{tax ? '72 (Семьдесят два)' : '60 (Шестьдесят)'} рублей 00</Text>}
+          priceLong={<Text strong>{tax ? '96 (Девяносто шесть)' : '80 (Восемьдесят)'} рублей 00</Text>}
         />
       )}
     />

@@ -1,4 +1,5 @@
 import { Button, Form, Input, notification } from 'antd'
+import styles from './index.module.css'
 
 export const OrderForm = () => {
   const [form] = Form.useForm()
@@ -20,7 +21,7 @@ export const OrderForm = () => {
 
   return (
     <>
-      <Form form={form} onFinish={submit} layout="vertical" style={{ width: '25%' }}>
+      <Form form={form} onFinish={submit} layout="vertical" className={styles.form}>
         <Form.Item name="name" label="Ваше имя" rules={[{ required: true }]}>
           <Input />
         </Form.Item>

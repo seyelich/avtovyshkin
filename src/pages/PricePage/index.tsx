@@ -1,10 +1,10 @@
-import type { TabsProps } from 'antd'
-import { Flex, Tabs } from 'antd'
-import Title from 'antd/es/typography/Title'
-import { OrderForm } from 'components/Forms/OrderForm'
-import { PriceForm } from 'components/Forms/PriceForm'
-import { PriceTable } from 'components/Tables/PriceTable'
 import { useLocation } from 'react-router-dom'
+import { Flex, Tabs } from 'antd'
+import { OrderForm } from 'components/Forms/OrderForm'
+import { PriceForm } from 'components/Forms/PriceForm/index'
+import { PriceTable } from 'components/Tables/PriceTable'
+import { PageTemplate } from 'pages'
+import type { TabsProps } from 'antd'
 
 const items: TabsProps['items'] = [
   {
@@ -41,12 +41,11 @@ export const PricePage = () => {
   const { state } = useLocation()
 
   return (
-    <div style={{ margin: '0 50px' }}>
-      <Title>Прайс-лист</Title>
+    <PageTemplate title="Прайс-лист">
       <Tabs
         defaultActiveKey={state?.action === 'calc' ? 'calculate' : state?.action ? 'order' : undefined}
         items={items}
       />
-    </div>
+    </PageTemplate>
   )
 }

@@ -1,11 +1,11 @@
 import { Flex } from 'antd'
-import Title from 'antd/es/typography/Title'
 import { AutoCard } from 'components/Cards/AutoCard'
+import { PageTemplate } from 'pages'
 import { cars } from 'utils/constants'
 
 export const CatalogPage = () => (
-  <div style={{ margin: '0 50px' }}>
-    <Title>Наши автовышки</Title>
+  //@TODO: fix cards
+  <PageTemplate title="Наши автовышки">
     <div>
       <Flex wrap="wrap" gap={10}>
         {cars.map((el) => (
@@ -13,5 +13,5 @@ export const CatalogPage = () => (
         ))}
       </Flex>
     </div>
-  </div>
+  </PageTemplate>
 )
