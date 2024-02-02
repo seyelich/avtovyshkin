@@ -1,34 +1,52 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { Layout } from 'antd'
+import { Header } from 'components/Header'
+import { MainPage } from 'pages/MainPage'
+import { CatalogPage } from 'pages/CatalogPage'
+import { PricePage } from 'pages/PricePage'
+import { ContactsPage } from 'pages/ContactsPage'
+import { Footer } from 'components/Footer'
 import './App.css'
+import { AutoPage } from 'pages/AutoPage'
+
+const routes = [
+  {
+    path: '/',
+    element: <MainPage />,
+  },
+  {
+    path: '/catalog',
+    element: <CatalogPage />,
+  },
+  {
+    path: '/catalog/:id',
+    element: <AutoPage />,
+  },
+  {
+    path: '/price',
+    element: <PricePage />,
+  },
+  {
+    path: '/contacts',
+    element: <ContactsPage />,
+  },
+]
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <Layout style={{ minHeight: '100vh' }}>
+      <BrowserRouter>
+        <Header />
+        <Layout.Content style={{ padding: '20px 25px' }}>
+          <Routes>
+            {routes.map((el) => (
+              <Route key={el.path} {...el} />
+            ))}
+          </Routes>
+        </Layout.Content>
+      </BrowserRouter>
+      <Footer />
+    </Layout>
   )
 }
 
