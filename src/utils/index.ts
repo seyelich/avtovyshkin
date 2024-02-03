@@ -7,3 +7,5 @@ export const getHeight = (val: number) => {
       ? height + ' метр'
       : height + ' метров'
 }
+
+export const getPriceOfRoad = (length: number) => length * (length > 30 ? 80 : 60)

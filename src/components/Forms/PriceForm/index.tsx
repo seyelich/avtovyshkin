@@ -1,7 +1,8 @@
-import { Button, Flex, Form, InputNumber, Radio, Select } from 'antd'
 import { useState } from 'react'
 import { useLocation } from 'react-router-dom'
-import { cars, getPriceOfRoad, taxCoef } from 'utils/constants'
+import { Button, Flex, Form, InputNumber, Radio, Select } from 'antd'
+import { cars, taxCoef } from 'utils/constants'
+import { getPriceOfRoad } from 'utils'
 import styles from './index.module.css'
 
 const radioOptions = [
@@ -11,11 +12,18 @@ const radioOptions = [
 
 const selectOptions = cars.map((el) => ({ value: el.height, label: el.height }))
 
+type TFormValues = {
+  time: number
+  height: number
+  tax: number
+  length: number
+}
+
 export const PriceForm = () => {
   const [price, setPrice] = useState(0)
   const { state } = useLocation()
 
-  const calculate = (values) => {
+  const calculate = (values: TFormValues) => {
     const { time, height, tax, length } = values
     const car = cars.find((el) => el.height === height)
     car && setPrice((time * car?.price + getPriceOfRoad(length)) * (tax ? taxCoef : 1))

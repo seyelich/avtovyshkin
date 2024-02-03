@@ -1,8 +1,6 @@
-import { useNavigate } from 'react-router-dom'
 import { InfoCircleOutlined, UpCircleOutlined } from '@ant-design/icons'
-import { Button, Card, Flex } from 'antd'
-import { OrderButton } from 'components/Buttons/OrderButton'
-import { PriceButton } from 'components/Buttons/PriceButton'
+import { Card, Flex } from 'antd'
+import { CustomButton } from 'components/CustomButton'
 import { Link } from 'react-router-dom'
 import { getHeight } from 'utils'
 import ruble from 'assets/images/roubleIcon.svg'
@@ -10,9 +8,12 @@ import weight from 'assets/images/iconWeight.svg'
 import type { TCar } from 'utils/constants'
 import styles from './index.module.css'
 
-export const AutoCard = ({ item, grid }: { item: TCar; grid?: boolean }) => {
-  const navigate = useNavigate()
+type TAutoCardProps = {
+  item: TCar
+  grid?: boolean
+}
 
+export const AutoCard = ({ item, grid }: TAutoCardProps) => {
   const blocks = [
     <Link
       style={{
@@ -56,11 +57,9 @@ export const AutoCard = ({ item, grid }: { item: TCar; grid?: boolean }) => {
         </Flex>
       </Flex>
       <Flex vertical gap={5} style={{ marginTop: 'auto', width: '100%' }}>
-        <Button size="large" onClick={() => navigate(`/catalog/${item.height}`)}>
-          Подробнее
-        </Button>
-        <PriceButton height={item.height} />
-        <OrderButton height={item.height} />
+        <CustomButton title="Подробнее" path={`/catalog/${item.height}`} />
+        <CustomButton title="Рассчитать цену" path="/price" height={item.height} action="calc" />
+        <CustomButton title="Заказать" path="/price" height={item.height} action="order" />
       </Flex>
     </div>,
   ]

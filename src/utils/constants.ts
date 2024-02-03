@@ -141,5 +141,3 @@ export const cars: TCar[] = [
 ]
 
 export const taxCoef = 1.2
-
-export const getPriceOfRoad = (length: number) => length * (length > 30 ? 80 : 60)

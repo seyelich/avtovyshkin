@@ -1,9 +1,13 @@
-import type { DescriptionsProps } from 'antd'
-import { Descriptions } from 'antd'
 import { useSize } from 'hooks/useSize'
+import { Descriptions } from 'antd'
+import type { DescriptionsProps } from 'antd'
 import type { TCar } from 'utils/constants'
 
-export const AutoDescription = ({ item }: { item: TCar }) => {
+type TAutoDescriptionProps = {
+  item: TCar
+}
+
+export const AutoDescription = ({ item }: TAutoDescriptionProps) => {
   const { width } = useSize()
 
   const items: DescriptionsProps['items'] = [

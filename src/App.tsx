@@ -5,9 +5,9 @@ import { MainPage } from 'pages/MainPage'
 import { CatalogPage } from 'pages/CatalogPage'
 import { PricePage } from 'pages/PricePage'
 import { ContactsPage } from 'pages/ContactsPage'
+import { AutoPage } from 'pages/AutoPage'
 import { Footer } from 'components/Footer'
 import './App.css'
-import { AutoPage } from 'pages/AutoPage'
 
 const routes = [
   {

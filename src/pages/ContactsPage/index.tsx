@@ -13,7 +13,6 @@ export const ContactsPage = () => (
         <Card>
           <Meta
             avatar={<ClockCircleTwoTone className={styles.icon} />}
-            //@TODO: fix big chars
             title="Мы рады вашим звонкам!"
             description={
               <>
