@@ -25,14 +25,34 @@ export const OrderForm = () => {
         <Form.Item name="name" label="Ваше имя" rules={[{ required: true }]}>
           <Input />
         </Form.Item>
-        <Form.Item name="tel" label="Телефон" rules={[{ required: true }]}>
+        <Form.Item
+          name="tel"
+          label="Телефон"
+          rules={[
+            {
+              pattern: new RegExp('^[+]?[(]?[0-9]{3}[)]?[-s.]?[0-9]{3}[-s.]?[0-9]{4,6}$'),
+              message: 'Неверный формат номера телефона',
+            },
+            { required: true, message: 'Пожалуйста, введите Телефон' },
+          ]}
+        >
           <Input type="tel" />
         </Form.Item>
-        <Form.Item name="email" label="Email" rules={[{ required: true }]}>
+        <Form.Item
+          name="email"
+          label="Email"
+          rules={[
+            {
+              pattern: new RegExp('([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+.[a-zA-Z0-9_-]+)'),
+              message: 'Неверный формат почты',
+            },
+            { required: true, message: 'Пожалуйста, введите Email' },
+          ]}
+        >
           <Input type="email" />
         </Form.Item>
         <Form.Item>
-          <Button htmlType="submit" style={{ width: '100%' }}>
+          <Button type="primary" htmlType="submit" style={{ width: '100%' }}>
             Отправить
           </Button>
         </Form.Item>

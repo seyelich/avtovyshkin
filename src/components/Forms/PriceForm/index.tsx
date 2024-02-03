@@ -46,7 +46,7 @@ export const PriceForm = () => {
         </Form.Item>
         <Form.Item>
           <div className={styles.btnContainer}>
-            <Button className={styles.btn} htmlType="submit">
+            <Button type="primary" className={styles.btn} htmlType="submit">
               Рассчитать цену
             </Button>
             <Button className={styles.btn} htmlType="reset">
