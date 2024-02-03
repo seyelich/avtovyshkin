@@ -16,7 +16,7 @@ export const HeaderMenu: FC<PropsWithChildren> = ({ children }) => {
     {
       key: '/',
       label: (
-        <NavLink style={{ color: 'white' }} to={'/'}>
+        <NavLink style={{ color: width > 768 ? 'white' : 'black' }} to={'/'}>
           ГЛАВНАЯ
         </NavLink>
       ),
@@ -24,7 +24,7 @@ export const HeaderMenu: FC<PropsWithChildren> = ({ children }) => {
     {
       key: '/catalog',
       label: (
-        <NavLink style={{ color: 'white' }} to={'/catalog'}>
+        <NavLink style={{ color: width > 768 ? 'white' : 'black' }} to={'/catalog'}>
           АВТОВЫШКИ
         </NavLink>
       ),
@@ -32,7 +32,7 @@ export const HeaderMenu: FC<PropsWithChildren> = ({ children }) => {
     {
       key: '/price',
       label: (
-        <NavLink style={{ color: 'white' }} to={'/price'}>
+        <NavLink style={{ color: width > 768 ? 'white' : 'black' }} to={'/price'}>
           ПРАЙС-ЛИСТ
         </NavLink>
       ),
@@ -40,7 +40,7 @@ export const HeaderMenu: FC<PropsWithChildren> = ({ children }) => {
     {
       key: '/contacts',
       label: (
-        <NavLink style={{ color: 'white' }} to={'/contacts'}>
+        <NavLink style={{ color: width > 768 ? 'white' : 'black' }} to={'/contacts'}>
           КОНТАКТЫ
         </NavLink>
       ),
@@ -81,7 +81,12 @@ export const HeaderMenu: FC<PropsWithChildren> = ({ children }) => {
         <Flex
           justify="center"
           gap={10}
-          style={{ position: width > 800 ? 'absolute' : 'unset', right: 30, bottom: 15, backgroundColor: 'white' }}
+          style={{
+            position: width > 800 ? 'absolute' : 'unset',
+            right: 30,
+            bottom: 15,
+            backgroundColor: 'rgb(51, 102, 153)',
+          }}
         >
           <Link style={{ color: 'white', fontSize: 25 }} href="mailto:334462@mail.ru">
             <MailFilled />

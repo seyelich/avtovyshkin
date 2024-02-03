@@ -46,7 +46,7 @@ export const PricePage = () => {
   }, [])
 
   return (
-    <PageTemplate title="Прайс-лист">
+    <PageTemplate title="ПРАЙС-ЛИСТ">
       <Tabs
         defaultActiveKey={state?.action === 'calc' ? 'calculate' : state?.action ? 'order' : undefined}
         items={items}

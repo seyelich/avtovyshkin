@@ -21,7 +21,7 @@ export const MainPage = () => {
         <>
           <Flex justify="center" style={{ width: '75%', margin: '0 auto 20px auto', position: 'relative' }}>
             {cars.map((el) => (
-              <div onClick={() => setSelectedEl(el)} className={styles.container}>
+              <div key={el.height} onClick={() => setSelectedEl(el)} className={styles.container}>
                 <p className={`${styles.circle} ${el.height === selectedEl.height && styles.circleActive}`}>
                   {el.height} м.
                 </p>

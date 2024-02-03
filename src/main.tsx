@@ -7,7 +7,12 @@ import ru from 'antd/locale/ru_RU'
 const theme = {
   components: {
     Button: {
-      colorPrimary: 'rgb(51, 102, 153)',
+      colorPrimary: 'linear-gradient(to bottom, #3378b0 5%, #0061a7 100%)',
+    },
+    Table: {
+      headerBg: 'linear-gradient(to top, #369, #3498db)',
+      headerColor: 'white',
+      borderColor: 'rgb(71, 146, 221)',
     },
   },
 }

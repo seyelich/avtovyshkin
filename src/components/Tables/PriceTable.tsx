@@ -37,6 +37,7 @@ export const PriceTable = ({ tax }: { tax?: boolean }) => {
       pagination={false}
       rowKey={'height'}
       scroll={{ x: true }}
+      bordered
       footer={() => (
         <PriceTableFooter
           priceShort={<Text strong>{tax ? '72 (Семьдесят два)' : '60 (Шестьдесят)'} рублей 00</Text>}
