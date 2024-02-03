@@ -12,7 +12,7 @@ type TCustomuttonProps = {
 export const CustomButton = ({ height, title, action, path }: TCustomuttonProps) => {
   const navigate = useNavigate()
   return (
-    <Button size="large" onClick={() => navigate(path, { state: { height, action } })}>
+    <Button type="primary" size="large" onClick={() => navigate(path, { state: { height, action } })}>
       {title}
     </Button>
   )

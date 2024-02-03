@@ -1,0 +1,51 @@
+.container {
+  width: 12%;
+  position: relative;
+}
+
+.circle {
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  text-align: center;
+  padding: 14px 0;
+  padding-left: 3px;
+  font-size: 13px;
+  background: linear-gradient(to right, #fff, #ccc);
+  color: black;
+  z-index: 2;
+  position: relative;
+}
+
+.circle:hover {
+  cursor: pointer;
+  background: linear-gradient(to top, #369, #3498db);
+  color: white;
+}
+
+.container::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  right: 0;
+  left: 0;
+  top: 50%;
+  height: 2px;
+  border-bottom: 2px solid #336ea4;
+  z-index: 1;
+}
+
+.container:last-of-type:after {
+  display: none;
+}
+
+.circleActive {
+  background: linear-gradient(to top, #369, #3498db);
+  color: white;
+}
+
+.label {
+  background: linear-gradient(to right, #fff, #ccc);
+  border-radius: 5px;
+  padding: 5px 10px;
+}

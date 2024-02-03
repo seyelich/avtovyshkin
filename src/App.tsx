@@ -9,6 +9,7 @@ import { AutoPage } from 'pages/AutoPage'
 import { SignInForm } from 'components/Forms/Auth/SignIn'
 import { SignUpForm } from 'components/Forms/Auth/SignUp'
 import { Footer } from 'components/Footer'
+import bg from 'assets/images/bg.jpg'
 import './App.css'
 
 const routes = [
@@ -44,7 +45,9 @@ const routes = [
 
 function App() {
   return (
-    <Layout style={{ minHeight: '100vh' }}>
+    <Layout
+      style={{ minHeight: '100vh', background: `url(${bg})`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat' }}
+    >
       <BrowserRouter>
         <Header />
         <Layout.Content style={{ padding: '20px 25px' }}>

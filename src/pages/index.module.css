@@ -2,6 +2,32 @@
   margin: 0 50px;
 }
 
+.title {
+  text-align: center;
+  overflow: hidden;
+}
+
+.title:before {
+  margin-left: -100%;
+  left: -14px;
+}
+
+.title:after {
+  margin-right: -100%;
+  left: 14px;
+}
+
+.title:after,
+.title:before {
+  content: '';
+  display: inline-block;
+  vertical-align: middle;
+  width: 100%;
+  height: 2px;
+  background-color: #336ea4;
+  position: relative;
+}
+
 @media screen and (max-width: 600px) {
   .container {
     margin: 0;

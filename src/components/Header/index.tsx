@@ -8,7 +8,13 @@ import styles from './index.module.css'
 
 export const Header = () => (
   <Layout.Header
-    style={{ height: 'fit-content', backgroundColor: '#369', padding: 0, color: 'white', position: 'relative' }}
+    style={{
+      height: 'fit-content',
+      backgroundColor: 'rgba(51, 102, 153, .5)',
+      padding: 0,
+      color: 'white',
+      position: 'relative',
+    }}
   >
     <HeaderMenu>
       <RouterLink to={'/'} style={{ display: 'flex', alignItems: 'center' }}>
@@ -31,10 +37,10 @@ export const Header = () => (
       <Flex className={styles.info}>
         <PhoneFilled style={{ fontSize: 50 }} />
         <Flex vertical justify="center" style={{ marginLeft: 10 }}>
-          <Link style={{ color: 'white' }} href="tel:+79138534462">
+          <Link style={{ color: 'white', fontWeight: 'bold' }} href="tel:+79138534462">
             +7 (913) 853-44-62
           </Link>
-          <Link style={{ color: 'white' }} href="tel:+73822334462">
+          <Link style={{ color: 'white', fontWeight: 'bold' }} href="tel:+73822334462">
             +7 (3822) 33-44-62
           </Link>
         </Flex>

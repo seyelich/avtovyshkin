@@ -70,6 +70,8 @@ export const AutoCard = ({ item, grid }: TAutoCardProps) => {
         margin: '0 auto',
         display: grid ? 'block' : 'flex',
         justifyContent: 'center',
+        background: 'none',
+        border: '3px solid #336ea4',
       }}
       bordered
     >
@@ -80,6 +82,7 @@ export const AutoCard = ({ item, grid }: TAutoCardProps) => {
               width: '50%',
               display: 'flex',
               alignItems: 'center',
+              boxShadow: 'none',
             }}
             className={styles.cardGrid}
             key={i}

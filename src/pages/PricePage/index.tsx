@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import { Flex, Tabs } from 'antd'
 import { OrderForm } from 'components/Forms/OrderForm'
@@ -39,6 +40,10 @@ const items: TabsProps['items'] = [
 
 export const PricePage = () => {
   const { state } = useLocation()
+
+  useEffect(() => {
+    document.title = 'Автовышкин - Прайс'
+  }, [])
 
   return (
     <PageTemplate title="Прайс-лист">

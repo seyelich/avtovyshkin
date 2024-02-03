@@ -1,4 +1,5 @@
 import { useParams } from 'react-router-dom'
+import { useEffect } from 'react'
 import { Image } from 'antd'
 import { AutoDescription } from 'components/AutoDescription'
 import { CustomButton } from 'components/CustomButton'
@@ -10,8 +11,12 @@ export const AutoPage = () => {
   const { id } = useParams()
   const car = cars.find((el) => el.height === Number(id))!
 
+  useEffect(() => {
+    document.title = `Автовышкин - Автовышка ${car.height} м.`
+  }, [car.height])
+
   return (
-    <PageTemplate title={`Автовышка ${car.height} м.`}>
+    <PageTemplate title={`АВТОВЫШКА ${car.height} М.`}>
       <div className={styles.container}>
         <div className={styles.content}>
           <Image src={car.img} />

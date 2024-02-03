@@ -8,7 +8,7 @@ type TPageTemplateProps = {
 
 export const PageTemplate: FC<PropsWithChildren<TPageTemplateProps>> = ({ title, children }) => (
   <div className={styles.container}>
-    <Title>{title}</Title>
+    <Title className={styles.title}>{title}</Title>
     {children}
   </div>
 )
