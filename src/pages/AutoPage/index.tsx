@@ -20,7 +20,6 @@ export const AutoPage = () => {
             <OrderButton height={car.height} />
           </div>
         </div>
-        {/* @TODO: fix mobile screen */}
         <AutoDescription item={car} />
       </div>
     </PageTemplate>

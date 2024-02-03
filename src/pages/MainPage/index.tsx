@@ -1,17 +1,21 @@
 import { Tabs } from 'antd'
-import { AutoCard } from 'components/Cards/AutoCard'
+import { useSize } from 'hooks/useSize'
+import { AutoCard } from 'components/AutoCard'
 import { PageTemplate } from 'pages'
 import { cars } from 'utils/constants'
 
-export const MainPage = () => (
-  //@TODO: fix mobile cards
-  <PageTemplate title="Выберите высоту автовышки">
-    <Tabs
-      items={cars.map((el) => ({
-        key: el.height.toString(),
-        children: <AutoCard key={el.height} item={el} grid />,
-        label: el.height,
-      }))}
-    />
-  </PageTemplate>
-)
+export const MainPage = () => {
+  const { width } = useSize()
+
+  return (
+    <PageTemplate title="Выберите высоту автовышки">
+      <Tabs
+        items={cars.map((el) => ({
+          key: el.height.toString(),
+          children: <AutoCard key={el.height} item={el} grid={width > 600} />,
+          label: el.height,
+        }))}
+      />
+    </PageTemplate>
+  )
+}

@@ -2,14 +2,6 @@
   line-height: 1;
 }
 
-.menuBtn {
-  display: none;
-}
-
-.menuMob {
-  display: none;
-}
-
 @media screen and (max-width: 900px) {
   .info {
     display: none;
@@ -17,16 +9,6 @@
 }
 
 @media screen and (max-width: 768px) {
-  .menu {
-    display: none;
-  }
-  .menuMob {
-    display: block;
-  }
-  .menuBtn {
-    display: block;
-  }
-
   .logo {
     width: 200px;
   }

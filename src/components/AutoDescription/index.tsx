@@ -1,8 +1,11 @@
 import type { DescriptionsProps } from 'antd'
 import { Descriptions } from 'antd'
+import { useSize } from 'hooks/useSize'
 import type { TCar } from 'utils/constants'
 
 export const AutoDescription = ({ item }: { item: TCar }) => {
+  const { width } = useSize()
+
   const items: DescriptionsProps['items'] = [
     {
       key: 'brand',
@@ -27,7 +30,6 @@ export const AutoDescription = ({ item }: { item: TCar }) => {
     {
       key: 'sizeTs',
       label: 'Габариты в транспортном положении, м.',
-      // add description or change span
       children: (
         <div>
           <p>Длина: {item.sizeTs[0]}</p>
@@ -49,13 +51,26 @@ export const AutoDescription = ({ item }: { item: TCar }) => {
     {
       key: 'sizeCradle',
       label: 'Габариты люльки, м.',
-      // add description
-      children: (
-        <div>
-          <p>Длина: {item.sizeCradle[0]}</p>
-          <p>Ширина: {item.sizeCradle[1]}</p>
-        </div>
-      ),
+      children:
+        typeof item.sizeCradle[0 || 1] === 'string' ? (
+          <div>
+            <p>Длина: {item.sizeCradle[0]}</p>
+            <p>Ширина: {item.sizeCradle[1]}</p>
+          </div>
+        ) : (
+          <div>
+            <p>
+              Длина:
+              <p>- слож.: {item.sizeCradle[0][0]}</p>
+              <p>- разлож.: {item.sizeCradle[0][1]}</p>
+            </p>
+            <p>
+              Ширина:
+              <p>- слож.: {item.sizeCradle[1][0]}</p>
+              <p>- разлож.: {item.sizeCradle[1][1]}</p>
+            </p>
+          </div>
+        ),
     },
     {
       key: 'special',
@@ -63,5 +78,15 @@ export const AutoDescription = ({ item }: { item: TCar }) => {
       children: item.special,
     },
   ]
-  return <Descriptions items={items} bordered column={1} title="Технические характеристики" />
+
+  return (
+    <Descriptions
+      size={width < 450 ? 'small' : 'default'}
+      labelStyle={{ width: width < 425 ? 157 : 'auto' }}
+      items={items}
+      bordered
+      column={1}
+      title="Технические характеристики"
+    />
+  )
 }

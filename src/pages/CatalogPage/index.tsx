@@ -1,10 +1,9 @@
 import { Flex } from 'antd'
-import { AutoCard } from 'components/Cards/AutoCard'
+import { AutoCard } from 'components/AutoCard'
 import { PageTemplate } from 'pages'
 import { cars } from 'utils/constants'
 
 export const CatalogPage = () => (
-  //@TODO: fix cards
   <PageTemplate title="Наши автовышки">
     <div>
       <Flex wrap="wrap" gap={10}>
