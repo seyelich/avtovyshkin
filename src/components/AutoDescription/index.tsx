@@ -87,6 +87,7 @@ export const AutoDescription = ({ item }: TAutoDescriptionProps) => {
     <Descriptions
       size={width < 450 ? 'small' : 'default'}
       labelStyle={{ width: width < 425 ? 157 : 'auto', color: 'black' }}
+      style={{ maxWidth: 500 }}
       items={items}
       bordered
       column={1}

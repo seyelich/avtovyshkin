@@ -8,9 +8,10 @@ export const SignUpForm = () => {
   const navigate = useNavigate()
 
   const submit = () => {
-    form.validateFields().then(() => {
+    form.validateFields().then((values) => {
       form.resetFields()
       navigate('/')
+      console.log(values)
     })
   }
 

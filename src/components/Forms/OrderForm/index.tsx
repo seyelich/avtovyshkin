@@ -13,9 +13,10 @@ export const OrderForm = () => {
   }
 
   const submit = () => {
-    form.validateFields().then(() => {
+    form.validateFields().then((values) => {
       openNotification()
       form.resetFields()
+      console.log(values)
     })
   }
 

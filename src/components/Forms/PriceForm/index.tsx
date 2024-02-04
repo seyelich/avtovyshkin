@@ -12,36 +12,40 @@ const radioOptions = [
 
 const selectOptions = cars.map((el) => ({ value: el.height, label: el.height }))
 
-type TFormValues = {
-  time: number
-  height: number
-  tax: number
-  length: number
-}
-
 export const PriceForm = () => {
+  const [form] = Form.useForm()
   const [price, setPrice] = useState(0)
   const { state } = useLocation()
 
-  const calculate = (values: TFormValues) => {
-    const { time, height, tax, length } = values
-    const car = cars.find((el) => el.height === height)
-    car && setPrice((time * car?.price + getPriceOfRoad(length)) * (tax ? taxCoef : 1))
+  const calculate = () => {
+    form.validateFields().then((values) => {
+      const { time, height, tax, length } = values
+      const car = cars.find((el) => el.height === height)
+      car && setPrice((time * car?.price + getPriceOfRoad(length)) * (tax ? taxCoef : 1))
+      form.resetFields()
+      console.log(values)
+    })
   }
 
   return (
     <Flex style={{ width: '75%', maxWidth: 600 }} vertical>
-      <Form layout="vertical" onFinish={calculate} onReset={() => setPrice(0)}>
-        <Form.Item name="time" label="Время работы, ч" required initialValue={2}>
+      <Form
+        form={form}
+        initialValues={{ time: 2, height: state?.height ?? state?.height, tax: false, length: 0 }}
+        layout="vertical"
+        onFinish={calculate}
+        onReset={() => setPrice(0)}
+      >
+        <Form.Item name="time" label="Время работы, ч" required>
           <InputNumber style={{ width: '100%' }} min={2} />
         </Form.Item>
-        <Form.Item name="height" label="Высота, м" initialValue={state?.height ?? state?.height} required>
+        <Form.Item name="height" label="Высота, м" required>
           <Select options={selectOptions} />
         </Form.Item>
-        <Form.Item name="tax" required initialValue={false}>
+        <Form.Item name="tax" required>
           <Radio.Group options={radioOptions} />
         </Form.Item>
-        <Form.Item name="length" label="Дорога, км" initialValue={0} required>
+        <Form.Item name="length" label="Дорога, км" required>
           <InputNumber style={{ width: '100%' }} min={0} />
         </Form.Item>
         <Form.Item>
